@@ -1,0 +1,176 @@
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+@font-face {
+font-family: 'PokemonGB';
+src: url('PokemonGB.ttf')  format('truetype');
+}
+html {
+  height:100%;
+  width:100%;
+  border: 20px solid #2854BD;
+  border-bottom-width: 60px;
+  background: linear-gradient(130deg, #88CFCA, #C4DDD2);
+  font-family: PokemonGB;
+  color: #110A78;
+  text-transform: uppercase;
+}
+
+.frame {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 94%;
+  width: 100%;
+  border-image-source: url("gallery/pokeball.png");
+  border-image-width: 80px;
+}
+
+body {
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.logo {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.charpannel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.charbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding: 25px 50px;
+}
+
+.char {
+  height: 150px;
+}
+
+.type {
+  width: 100%;
+  padding-top: 25px;
+  vertical-align:top;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  position:relative;
+}
+
+figcaption {
+  opacity:0;
+  height: 100%;
+  width: 150%;
+  padding: 5px;
+  background-color: #EEEEEE;
+  text-align: justify;
+  position: absolute;
+  top: 0;
+  left: -25%;
+  border: 5px ridge grey;
+}
+
+figure:hover figcaption {
+transition:all 1s;
+  opacity:1;
+}
+
+
+.choose {
+  padding-top: 20px;
+  font-size: 36px;
+  font-weight: 900;
+  color: #FFFF00;
+  -webkit-text-stroke: 3px #110A78;
+}
+
+.navbar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 15px 0px;
+  font-size: 20px;
+  width: 100%;
+}
+
+.règles {
+  background: inherit;
+  border: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+#règles {
+  position: fixed;
+  display: none;
+  bottom: 70px;
+  left: 30px;
+  padding: 50px;
+  background-color: #EEEEEE;
+  text-align: justify;
+  border: 5px ridge grey;
+}
+
+#propos {
+  position: fixed;
+  display: none;
+  bottom: 70px;
+  right: 30px;
+  padding: 50px;
+  background-color: #EEEEEE;
+  text-align: justify;
+  border: 5px ridge grey;
+}
+
+#resultbox {
+  position: absolute;
+  height: 85%;
+  width: 88.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(130deg, #88CFCA, #C4DDD2);
+  z-index: -5;
+  opacity: 0;
+}
+
+#resulttxt {
+  padding: 10px;
+  margin-top: 50px;
+  background-color: #EEEEEE;
+  text-align: justify;
+  border: 5px ridge grey;
+}
+
+#resultbox:target {
+  z-index: 5;
+  opacity: 1;
+  transition-duration: 0.1s;
+}

@@ -1,91 +1,242 @@
 let characters = ["bulbizarre", "salamèche", "carapuce", "pikachu", "ramoloss"];
 
-  let plante = document.getElementById('plante');
-  let eau = document.getElementById('eau');
-  let feu = document.getElementById('feu');
-  let psy = document.getElementById('psy');
-  let electrik = document.getElementById('electrik');
+let score = localStorage.getItem('score');
+let partie = localStorage.getItem('partie');
+let best = localStorage.getItem('best');
+let issue = "";
 
-  function versus(computer) {
-    let number = Math.random();
-    console.log(number);
 
-    if (number < 0.2) {
-      computer = plante;
+if(partie == null || partie == 1) {
+  localStorage.setItem('partie', 1);
+  localStorage.setItem('score', 0);
+}
+
+if(best == null) {
+  localStorage.setItem('best', 0);
+}
+
+function scorecount(issue) {
+  let score = localStorage.getItem('score');
+  let partie = localStorage.getItem('partie');
+  do {
+    if(issue == "win") {
+      score++;
+      partie++;
+      localStorage.setItem('partie', partie);
+      localStorage.setItem('score', score);
+      break;
     }
-    if (number >= 0.2 && number < 0.4) {
-      computer = eau;
+    else if(issue == "") {
+      partie++;
+      localStorage.setItem('partie', partie);
+      localStorage.setItem('score', score);
+      break;
     }
-    if (number >= 0.4 && number < 0.6) {
-      computer = feu;
+  } while(partie < 5);
+  if (partie == 5) {
+    alert("fin, score="+score);
+    if(score > best) {
+      localStorage.setItem('best', score);
     }
-    if (number >= 0.6 && number < 0.8) {
-      computer = psy;
+    else if (score < best) {
+      localStorage.setItem('best', best);
     }
-    if (number >= 0.8 && number < 1) {
-      computer = electrik;
-    }
+    localStorage.setItem('partie', 1);
+    localStorage.setItem('score', 0);
+  }
+}
+
+/*
+function bestscore() {
+  if(best == null) {
+    localStorage.setItem('best', score);
+  }
+  else if (best !== null && best < score) {
+    localStorage.setItem('best', score);
+  }
+}
+
+function partiecount() {
+  if(partie == null) {
+    localStorage.setItem('partie', 1)
+  }
+  else if(partie !== null && partie < 5) {
+    ++partie;
+    localStorage.setItem('partie', partie);
+  }
+  else if(partie == 5) {
+    bestscore();
+    localStorage.removeItem('score');
+    localStorage.setItem('score', 0);
+    localStorage.setItem('partie', 1);
+  }
+}
+
+function scorecount(issue) {
+  if(issue == "win") {
+    score++;
+    localStorage.setItem('score', score);
+  }
+  else if(issue == "lose") {
+    score--;
+    localStorage.setItem('score', score);
+  }
+  else {
+    localStorage.setItem('score', score);
+  }
+}
+*/
+
+
+function bulbizarre() {
+  let random = characters[Math.floor((Math.random() * 5))];
+
+  if (random == "carapuce" || random == "ramoloss") {
+    console.log("win!");
+    scorecount("win");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/bulbizarre.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Félicitations!</h1><p>Bulbizarre a battu '+random+'</p><a href="">Rejouer!</a>';
   }
 
-  function uplante(computer) {
-    if (computer = eau || computer = psy) {
-      echo "win";
-    }
-    if (computer = plante) {
-      echo "draw";
-    }
-    if (computer = electrik || computer = feu) {
-      echo "lose";
-    }
-  }
-  console.log("ici");
-  console.log("computer");
-  console.log("uplante(computer)");
+  else if (random == "bulbizarre") {
+    console.log("draw");
+    scorecount("");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/bulbizarre.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
 
-  function ueau() {
-    if (feu || psy) {
-      win
-    }
-    if (eau) {
-      draw
-    }
-    if (electrik || plante) {
-      lose
-    }
+    document.getElementById('resulttxt').innerHTML = '<h1>Tiens donc!</h1><p>Bulbizarre a rencontré un autre '+random+'</p><a href="">Rejouer!</a>';
   }
 
-  function ufeu() {
-    if (plante || electrik) {
-      win
-    }
-    if (feu) {
-      draw
-    }
-    if (eau || psy) {
-      lose
-    }
-  }
+  else {
+    console.log("lose!");
+    scorecount("");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/bulbizarre.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
 
-  function upsy() {
-    if (electrik || feu) {
-      win
-    }
-    if (psy) {
-      draw
-    }
-    if (plante || eau) {
-      lose
-    }
+    document.getElementById('resulttxt').innerHTML = '<h1>Coup critique!</h1><p>Bulbizarre a été battu par '+random+'</p><a href="">Rejouer!</a>';
   }
+  window.location="#resultbox";
+}
 
-  function uelectrik() {
-    if (eau || plante) {
-      win
-    }
-    if (electrik) {
-      draw
-    }
-    if (psy || feu) {
-      lose
-    }
+function salamèche() {
+  let random = characters[Math.floor((Math.random() * 5))];
+  partiecount();
+  if (random == "pikachu" || random == "bulbizarre") {
+    console.log("win!");
+    scorecount("win");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/salamèche.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Félicitations!</h1><p>Salamèche a battu '+random+'</p><a href="">Rejouer!</a>';
   }
+  else if (random == "salamèche") {
+    console.log("draw");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/salamèche.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Tiens donc!</h1><p>Salamèche a rencontré un autre '+random+'</p><a href="">Rejouer!</a>';
+  }
+  else {
+    console.log("lose!");
+    scorecount("lose");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/salamèche.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Coup critique!</h1><p>Salamèche a été battu par '+random+'</p><a href="">Rejouer!</a>';
+  }
+  window.location="#resultbox";
+}
+
+function carapuce() {
+  let random = characters[Math.floor((Math.random() * 5))];
+  partiecount();
+  if (random == "salamèche" || random == "ramoloss") {
+    console.log("win!");
+    scorecount("win");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/carapuce.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Félicitations!</h1><p>Carapuce a battu '+random+'</p><a href="">Rejouer!</a>';
+  }
+  else if (random == "carapuce") {
+    console.log("draw");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/carapuce.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Tiens donc!</h1><p>Carapuce a rencontré un autre '+random+'</p><a href="">Rejouer!</a>';
+  }
+  else {
+    console.log("lose!");
+    scorecount("lose");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/carapuce.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Coup critique!</h1><p>Carapuce a été battu par '+random+'</p><a href="">Rejouer!</a>';
+  }
+  window.location="#resultbox";
+}
+
+function pikachu() {
+  let random = characters[Math.floor((Math.random() * 5))];
+  partiecount();
+  if (random == "carapuce" || random == "bulbizarre") {
+    console.log("win!");
+    scorecount("win");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/pikachu.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Félicitations!</h1><p>Pikachu a battu '+random+'</p><a href="">Rejouer!</a>';
+  }
+  else if (random == "pikachu") {
+    console.log("draw");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/pikachu.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Tiens donc!</h1><p>Pikachu a rencontré un autre '+random+'</p><a href="">Rejouer!</a>';
+  }
+  else {
+    console.log("lose!");
+    scorecount("lose");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/pikachu.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Coup critique!</h1><p>Pikachu a été battu par '+random+'</p><a href="">Rejouer!</a>';
+  }
+  window.location="#resultbox";
+}
+
+function ramoloss() {
+  let random = characters[Math.floor((Math.random() * 5))];
+  partiecount();
+  if (random == "salamèche" || random == "pikachu") {
+    console.log("win!");
+    scorecount("win");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/ramoloss.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Félicitations!</h1><p>Ramoloss a battu '+random+'</p><a href="">Rejouer!</a>';
+  }
+  else if (random == "ramoloss") {
+    console.log("draw");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/ramoloss.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Tiens donc!</h1><p>Ramoloss a rencontré un autre '+random+'</p><a href="">Rejouer!</a>';
+  }
+  else {
+    console.log("lose!");
+    scorecount("lose");
+    document.getElementById('resultimg').innerHTML = '<img src="gallery/ramoloss.png" class="char"><img src="gallery/chen.png" height="300px"><img src="gallery/'+random+'.png" class="char">';
+
+    document.getElementById('resulttxt').innerHTML = '<h1>Coup critique!</h1><p>Ramoloss a été battu par '+random+'</p><a href="">Rejouer!</a>';
+  }
+  window.location="#resultbox";
+}
+
+function show() {
+  let règles = document.getElementById("règles");
+  if (règles.style.display == "none") {
+    règles.style.display = "block";
+  }
+  else {
+    règles.style.display = "none";
+  }
+}
+
+function apropos() {
+  let propos = document.getElementById("propos");
+  if (propos.style.display == "none") {
+    propos.style.display = "block";
+  }
+  else {
+    propos.style.display = "none";
+  }
+}

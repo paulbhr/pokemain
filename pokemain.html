@@ -3,130 +3,12 @@
 <head>
 
   <meta charset="utf-8" lang="fr">
-  <title> POKEMAIN </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> POKÉMAIN </title>
+  <link rel="stylesheet" type="text/css" href="pokemain.css">
+  <script src="pokemain.js"></script>
 
 </head>
-
-<style>
-* {margin: 0; padding: 0; box-sizing: border-box;}
-@font-face {
-font-family: 'PokemonGB';
-src: url('PokemonGB.ttf')  format('truetype');
-}
-html {
-  height:100%;
-  width:100%;
-  border: 20px solid #2854BD;
-  border-bottom-width: 60px;
-  background: linear-gradient(130deg, #88CFCA, #C4DDD2);
-  font-family: PokemonGB;
-  color: #110A78;
-}
-
-.frame {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 94%;
-  width: 100%;
-  border-image-source: url("gallery/pokeball.png");
-  border-image-width: 80px;
-}
-
-body {
-  max-height: 100%;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 60px;
-}
-
-.logo {
-  padding-top: 20px;
-  padding-bottom: 10px;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.charpannel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-}
-
-.charbox {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: baseline;
-  padding: 25px 50px;
-}
-
-.char {
-  height: 150px;
-}
-
-.type {
-  width: 100%;
-  padding-top: 25px;
-  vertical-align:top;
-}
-
-figure {
-  display: flex;
-  flex-direction: column;
-  width:100%;
-  position:relative;
-}
-
-figcaption {
-  opacity:0;
-  height: 100%;
-  width: 150%;
-  padding: 5px;
-  background-color: #EEEEEE;
-  text-align: justify;
-  position: absolute;
-  top: 0;
-  left: -25%;
-  border: 5px ridge grey;
-}
-
-figure:hover figcaption {
-transition:all 1s;
-  opacity:1;
-}
-
-
-.choose {
-  padding-top: 20px;
-  font-size: 36px;
-  font-weight: 900;
-  color: #FFFF00;
-  -webkit-text-stroke: 3px #110A78;
-}
-
-.navbar {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 15px 0px;
-  font-size: 20px;
-  width: 100%;
-}
-
-</style>
 
 <body>
   <div class="frame"></div>
@@ -137,7 +19,7 @@ transition:all 1s;
 
   <main class="content">
     <div class="charpannel">
-      <div class="charbox bulbizarre" onclick="versus()">
+      <div class="charbox bulbizarre" onclick="bulbizarre()">
         <img src="gallery/bulbizarre.png" alt="Bulbizarre" class="char" onclick="versus()">
         <figure>
           <img src="gallery/plante.png" alt="Type:Plante" class="type">
@@ -174,135 +56,47 @@ transition:all 1s;
       </div>
     </div>
     <div class="choose" onclick="rules()">
-      CHOOSE !
+      CHOISIS TON POKÉMON !
     </div>
   </main>
 
   <footer class="navbar">
-    <div class="règles">RÈGLES !</div>
-    <div class="score">SCORE:X BEST:X</div>
-    <div class="about">À PROPOS !</div>
+    <button onclick="show()" class="règles">RÈGLES !</button>
+    <div id="règles">
+      <h1>En 5 parties !</h1>
+      <h1>Plante</h1><p>Bat Eau & Psy</p>
+      <h1>Feu</h1><p>Bat Électrik & Plante</p>
+      <h1>Eau</h1><p>Bat Feu & Psy</p>
+      <h1>Électrik</h1><p>Bat Eau & Plante</p>
+      <h1>Psy</h1><p>Bat Électrik & Feu</p>
+    </div>
+    <div id="score"><script>document.getElementById('score').innerHTML = 'SCORE: '+localStorage.getItem('score')+' MEILLEUR: '+localStorage.getItem('best')+' PARTIE: '+localStorage.getItem('partie')+'/5';</script></div>
+    <button onclick="apropos()" class="règles">À PROPOS !</button>
+    <div id="propos">
+      <h1>Crédits :</h1>
+      <p>
+        Images : © <a href="http://www.pokepedia.fr/Portail:Accueil">Poképédia</a><br>
+        Pokéball : © <a href="http://www.p-pokemon.com/article-pokeballge.html">P-Pokemon</a><br>
+        Logo : Adapté de <a href="http://pixelartmaker.com/art/d98dde45d242734">PixelArtMaker</a><br>
+        Contact : <a href="mailto:pokemainbhr@gmail.com">PaulBHR</a>
+      </p>
+    </div>
   </footer>
 
-  <section class="result">
-    <img src="gallery/chen.png" height="250px">
-    <div class="content"><h1>Congratuliations!</h1>
-    <p>You won!</p></div>
+  <section id="resultbox">
+    <div id="resultimg">
+      <img src="gallery/bulbizarre.png" class="char">
+      <img src="gallery/chen.png" height="300px">
+      <img src="gallery/carapuce.png" class="char">
+    </div>
+    <div class="content" id="resulttxt">
+      <h1>Félicitations!</h1>
+      <p>Bulbizarre a battu</p>
+      <a href="">Rejouer!</a>
+    </div>
   </section>
 
 </body>
 
-<script>
 
-let characters = ["bulbizarre", "salamèche", "carapuce", "pikachu", "ramoloss"];
-let random = characters[Math.floor((Math.random() * 5))];
-console.log(random);
-function versus() {
-  if (random == "salamèche" || random == "pikachu") {
-    console.log("win!");
-  }
-  else if (random == "bulbizarre") {
-    console.log("draw");
-  }
-  else {
-    console.log("lose!");
-  }
-}
-
-function bulbizarre() {}
-function salamèche() {}
-function carapuce() {}
-function pikachu() {}
-function ramoloss() {}
-
-/*
-  let plante = document.getElementById('plante');
-  let eau = document.getElementById('eau');
-  let feu = document.getElementById('feu');
-  let psy = document.getElementById('psy');
-  let electrik = document.getElementById('electrik');
-
-  function versus(computer) {
-    let number = Math.random();
-    console.log(number);
-
-    if (number < 0.2) {
-      computer = plante;
-    }
-    if (number >= 0.2 && number < 0.4) {
-      computer = eau;
-    }
-    if (number >= 0.4 && number < 0.6) {
-      computer = feu;
-    }
-    if (number >= 0.6 && number < 0.8) {
-      computer = psy;
-    }
-    if (number >= 0.8 && number < 1) {
-      computer = electrik;
-    }
-  }
-
-  function uplante(computer) {
-    if (computer = eau || computer = psy) {
-      echo "win";
-    }
-    if (computer = plante) {
-      echo "draw";
-    }
-    if (computer = electrik || computer = feu) {
-      echo "lose";
-    }
-  }
-
-
-  function ueau() {
-    if (feu || psy) {
-      win
-    }
-    if (eau) {
-      draw
-    }
-    if (electrik || plante) {
-      lose
-    }
-  }
-
-  function ufeu() {
-    if (plante || electrik) {
-      win
-    }
-    if (feu) {
-      draw
-    }
-    if (eau || psy) {
-      lose
-    }
-  }
-
-  function upsy() {
-    if (electrik || feu) {
-      win
-    }
-    if (psy) {
-      draw
-    }
-    if (plante || eau) {
-      lose
-    }
-  }
-
-  function uelectrik() {
-    if (eau || plante) {
-      win
-    }
-    if (electrik) {
-      draw
-    }
-    if (psy || feu) {
-      lose
-    }
-  }
-*/
-</script>
 </html>
