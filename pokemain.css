@@ -4,11 +4,10 @@
 font-family: 'PokemonGB';
 src: url('PokemonGB.ttf')  format('truetype');
 }
+
 html {
   height:100%;
   width:100%;
-  border: 20px solid #2854BD;
-  border-bottom-width: 60px;
   background: linear-gradient(130deg, #88CFCA, #C4DDD2);
   font-family: PokemonGB;
   color: #110A78;
@@ -16,6 +15,16 @@ html {
 }
 
 .frame {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border: 20px solid #2854BD;
+  border-bottom-width: 60px;
+}
+
+.corner {
   position: fixed;
   left: 0;
   top: 0;
@@ -35,87 +44,115 @@ body {
   margin-bottom: 60px;
 }
 
-.logo {
-  padding-top: 20px;
-  padding-bottom: 10px;
-}
-
-.content {
+main.content {
+  width: 90%;
+  height: 88%;
+  position: absolute;
+  top: 20px;
+  padding: 0.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.logo {
+  height: 35%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .charpannel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-}
-
-.charbox {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: baseline;
-  padding: 25px 50px;
-}
-
-.char {
-  height: 150px;
-}
-
-.type {
+  z-index: 1;
   width: 100%;
-  padding-top: 25px;
-  vertical-align:top;
-}
-
-figure {
+  height: 50%;
   display: flex;
-  flex-direction: column;
-  width:100%;
-  position:relative;
+  justify-content: space-around;
+  align-items: center;
 }
 
-figcaption {
-  opacity:0;
-  height: 100%;
-  width: 150%;
-  padding: 5px;
-  background-color: #EEEEEE;
-  text-align: justify;
-  position: absolute;
-  top: 0;
-  left: -25%;
-  border: 5px ridge grey;
-}
+  .charbox {
+    height: 100%;
+    width: 20%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
-figure:hover figcaption {
-transition:all 1s;
-  opacity:1;
-}
+  .char {
+    height: 75%;
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+    width: 100%;
+    position:relative;
+  }
+
+  .type {
+    height: 100%;
+    padding: 10%;
+  }
+
+  figcaption {
+    opacity:0;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    background-color: #EEEEEE;
+    text-align: justify;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 5px ridge grey;
+  }
+
+  figure:hover figcaption {
+    transition:all 1s;
+    opacity:1;
+  }
 
 
 .choose {
-  padding-top: 20px;
-  font-size: 36px;
-  font-weight: 900;
-  color: #FFFF00;
-  -webkit-text-stroke: 3px #110A78;
+  height: 15%;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
+  .choose h1 {
+    font-size: 2.5em;
+    font-weight: 900;
+    color: #FFFF00;
+    -webkit-text-stroke: 3.1px #110A78;
+    text-align: center;
+    padding-top: 20%;
+  }
+
 
 .navbar {
+  z-index: 2;
   position: fixed;
   left: 0;
   bottom: 0;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   padding: 15px 0px;
-  font-size: 20px;
+  font-size: 18px;
   width: 100%;
+  height: 60px;
 }
 
 .règles {
@@ -138,6 +175,7 @@ transition:all 1s;
 }
 
 #propos {
+  z-index: 2;
   position: fixed;
   display: none;
   bottom: 70px;
@@ -150,8 +188,9 @@ transition:all 1s;
 
 #resultbox {
   position: absolute;
-  height: 85%;
-  width: 88.5%;
+  top: 20px;
+  width: 88%;
+  height: 88%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,16 +200,294 @@ transition:all 1s;
   opacity: 0;
 }
 
+#resultimg {
+  max-width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 10%;
+}
+
+.chen {
+  height: 125%;
+}
+
+#resultimg .char {
+
+}
+
 #resulttxt {
   padding: 10px;
-  margin-top: 50px;
+  margin-top: 5%;
   background-color: #EEEEEE;
-  text-align: justify;
+  text-align: center;
   border: 5px ridge grey;
 }
 
 #resultbox:target {
   z-index: 5;
   opacity: 1;
-  transition-duration: 0.1s;
+  transition-duration: 0.2s;
+}
+
+@media only screen and (max-width: 950px) {
+  .frame {
+    height: 100%;
+    width: 100%;
+    border: 20px solid #2854BD;
+    border-bottom-width: 60px;
+  }
+
+  .corner {
+    left: 0;
+    top: 0;
+    height: 94%;
+    width: 100%;
+    border-image-source: url("gallery/pokeball.png");
+    border-image-width: 80px;
+  }
+
+  body {
+    max-height: 100%;
+    max-width: 100%;
+    margin-bottom: 60px;
+  }
+
+  main.content {
+    width: 90%;
+    height: 88%;
+    top: 20px;
+    padding: 0.5%;
+  }
+
+  .logo {
+    height: 35%;
+    width: 100%;
+  }
+
+  .logo img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  .charpannel {
+    width: 100%;
+    height: 50%;
+  }
+
+    .charbox {
+      height: 100%;
+      width: 20%;
+      padding: 2%;
+    }
+
+    .char {
+      height: 75%;
+    }
+
+    figure {
+      height: 25%;
+      width: 100%;
+    }
+
+    .type {
+      height: 100%;
+      padding: 10%;
+    }
+
+    figcaption {
+      height: 100%;
+      width: 100%;
+      padding: 5px;
+      border: 5px ridge grey;
+    }
+
+
+  .choose {
+    height: 15%;
+    width: 100%;
+  }
+    .choose h1 {
+      font-size: 2.5em;
+      -webkit-text-stroke: 3.1px #110A78;
+      padding-top: 20%;
+    }
+
+
+  .navbar {
+    padding: 15px 0px;
+    font-size: 18px;
+    width: 100%;
+    height: 60px;
+  }
+
+  #règles {
+    bottom: 70px;
+    left: 30px;
+    padding: 50px;
+    border: 5px ridge grey;
+  }
+
+  #propos {
+    bottom: 70px;
+    right: 30px;
+    padding: 50px;
+    border: 5px ridge grey;
+  }
+
+  #resultbox {
+    top: 20px;
+    width: 88%;
+    height: 88%;
+  }
+
+  #resultimg {
+    max-width: 100%;
+    height: 50%;
+    margin-top: 10%;
+  }
+
+  .chen {
+    height: 125%;
+  }
+
+  #resulttxt {
+    padding: 10px;
+    margin-top: 5%;
+    border: 5px ridge grey;
+  }
+}
+
+.animate {
+  
+}
+
+
+@media only screen and (min-width: 950px) {
+  .frame {
+    height: 100%;
+    width: 100%;
+    border: 20px solid #2854BD;
+    border-bottom-width: 60px;
+  }
+
+  .corner {
+    left: 0;
+    top: 0;
+    height: 94%;
+    width: 100%;
+    border-image-source: url("gallery/pokeball.png");
+    border-image-width: 80px;
+  }
+
+  body {
+    max-height: 100%;
+    max-width: 100%;
+    margin-bottom: 60px;
+  }
+
+  main.content {
+    width: 90%;
+    height: 88%;
+    top: 20px;
+    padding: 0.5%;
+  }
+
+  .logo {
+    height: 35%;
+    width: 100%;
+  }
+
+  .logo img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  .charpannel {
+    width: 100%;
+    height: 50%;
+  }
+
+    .charbox {
+      height: 100%;
+      width: 20%;
+      padding: 2%;
+    }
+
+    .char {
+      height: 75%;
+    }
+
+    figure {
+      height: 25%;
+      width: 100%;
+    }
+
+    .type {
+      height: 100%;
+      padding: 10%;
+    }
+
+    figcaption {
+      height: 100%;
+      width: 100%;
+      padding: 5px;
+      border: 5px ridge grey;
+    }
+
+
+  .choose {
+    height: 15%;
+    width: 100%;
+  }
+    .choose h1 {
+      font-size: 2.5em;
+      -webkit-text-stroke: 3.1px #110A78;
+      padding-top: 20%;
+    }
+
+
+  .navbar {
+    padding: 15px 0px;
+    font-size: 18px;
+    width: 100%;
+    height: 60px;
+  }
+
+  #règles {
+    bottom: 70px;
+    left: 30px;
+    padding: 50px;
+    border: 5px ridge grey;
+  }
+
+  #propos {
+    bottom: 70px;
+    right: 30px;
+    padding: 50px;
+    border: 5px ridge grey;
+  }
+
+  #resultbox {
+    top: 20px;
+    width: 88%;
+    height: 88%;
+  }
+
+  #resultimg {
+    max-width: 100%;
+    height: 50%;
+    margin-top: 10%;
+  }
+
+  .chen {
+    height: 125%;
+  }
+
+  #resulttxt {
+    padding: 10px;
+    margin-top: 5%;
+    border: 5px ridge grey;
+  }
 }

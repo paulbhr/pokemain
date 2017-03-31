@@ -11,13 +11,14 @@
 </head>
 
 <body>
-  <div class="frame"></div>
 
-  <header class="logo">
-    <img src="gallery/logo.png" alt="logo" height="200px">
-  </header>
+  <div class="frame"><div class="corner"></div></div>
 
   <main class="content">
+    <header class="logo">
+      <img src="gallery/logo.png" alt="logo">
+    </header>
+
     <div class="charpannel">
       <div class="charbox bulbizarre" onclick="bulbizarre()">
         <img src="gallery/bulbizarre.png" alt="Bulbizarre" class="char" onclick="versus()">
@@ -55,8 +56,9 @@
         </figure>
       </div>
     </div>
-    <div class="choose" onclick="rules()">
-      CHOISIS TON POKÉMON !
+
+    <div class="choose">
+      <h1>CHOISIS TON POKÉMON !</h1>
     </div>
   </main>
 
@@ -70,7 +72,8 @@
       <h1>Électrik</h1><p>Bat Eau & Plante</p>
       <h1>Psy</h1><p>Bat Électrik & Feu</p>
     </div>
-    <div id="score"><script>document.getElementById('score').innerHTML = 'SCORE: '+localStorage.getItem('score')+' MEILLEUR: '+localStorage.getItem('best')+' PARTIE: '+localStorage.getItem('partie')+'/5';</script></div>
+    <div id="score">
+      <script>document.getElementById('score').innerHTML = 'SCORE: '+localStorage.getItem('score')+' MEILLEUR: '+localStorage.getItem('best')+' PARTIE: '+localStorage.getItem('partie')+'/5';</script></div>
     <button onclick="apropos()" class="règles">À PROPOS !</button>
     <div id="propos">
       <h1>Crédits :</h1>
@@ -86,7 +89,7 @@
   <section id="resultbox">
     <div id="resultimg">
       <img src="gallery/bulbizarre.png" class="char">
-      <img src="gallery/chen.png" height="300px">
+      <img src="gallery/chen.png" class="chen">
       <img src="gallery/carapuce.png" class="char">
     </div>
     <div class="content" id="resulttxt">
