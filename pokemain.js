@@ -34,7 +34,7 @@ function scorecount(issue) {
     }
   } while(partie < 6);
   if (partie == 6) {
-    alert("Fin de la partie! Score: "+score);
+    setTimeout(function(){ alert("Fin de la partie! Score: "+score); }, 1000);
     if(score > best) {
       localStorage.setItem('best', score);
     }
@@ -197,25 +197,5 @@ function ramoloss() {
     document.getElementById('resulttxt').innerHTML = '<h1>Coup critique!</h1><p>Ramoloss a été battu par '+random+'</p><a href="">Rejouer!</a>';
     window.location="#resultbox";
     scorecount("");
-  }
-}
-
-function show() {
-  let règles = document.getElementById("règles");
-  if (règles.style.display == "none") {
-    règles.style.display = "block";
-  }
-  else {
-    règles.style.display = "none";
-  }
-}
-
-function apropos() {
-  let propos = document.getElementById("propos");
-  if (propos.style.display == "none") {
-    propos.style.display = "block";
-  }
-  else {
-    propos.style.display = "none";
   }
 }

@@ -1,18 +1,20 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: default; }
 
-* {margin: 0; padding: 0; box-sizing: border-box;}
 @font-face {
-font-family: 'PokemonGB';
-src: url('PokemonGB.ttf')  format('truetype');
-}
-
+  font-family: 'PokemonGB';
+  src: url("PokemonGB.ttf") format("truetype"); }
 html {
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
   background: linear-gradient(130deg, #88CFCA, #C4DDD2);
   font-family: PokemonGB;
   color: #110A78;
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 
 .frame {
   position: fixed;
@@ -21,8 +23,7 @@ html {
   height: 100%;
   width: 100%;
   border: 20px solid #2854BD;
-  border-bottom-width: 60px;
-}
+  border-bottom-width: 60px; }
 
 .corner {
   position: fixed;
@@ -31,8 +32,7 @@ html {
   height: 94%;
   width: 100%;
   border-image-source: url("gallery/pokeball.png");
-  border-image-width: 80px;
-}
+  border-image-width: 80px; }
 
 body {
   max-height: 100%;
@@ -41,8 +41,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 60px;
-}
+  margin-bottom: 60px; }
 
 main.content {
   width: 90%;
@@ -53,21 +52,18 @@ main.content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .logo {
   height: 35%;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .logo img {
   max-height: 100%;
-  max-width: 100%;
-}
+  max-width: 100%; }
 
 .charpannel {
   z-index: 1;
@@ -75,71 +71,61 @@ main.content {
   height: 50%;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-}
+  align-items: center; }
 
-  .charbox {
-    height: 100%;
-    width: 20%;
-    padding: 2%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
+.charbox {
+  height: 100%;
+  width: 20%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; }
 
-  .char {
-    height: 75%;
-  }
+.char {
+  height: 75%; }
 
-  figure {
-    display: flex;
-    flex-direction: column;
-    height: 25%;
-    width: 100%;
-    position:relative;
-  }
+figure {
+  display: flex;
+  flex-direction: column;
+  height: 25%;
+  width: 100%;
+  position: relative; }
 
-  .type {
-    height: 100%;
-    padding: 10%;
-  }
+.type {
+  height: 100%;
+  padding: 10%; }
 
-  figcaption {
-    opacity:0;
-    height: 100%;
-    width: 100%;
-    padding: 5px;
-    background-color: #EEEEEE;
-    text-align: justify;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 5px ridge grey;
-  }
+figcaption {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  background-color: #EEEEEE;
+  text-align: justify;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 5px ridge grey; }
 
-  figure:hover figcaption {
-    transition:all 1s;
-    opacity:1;
-  }
-
+figure:hover figcaption {
+  transition: all 1s;
+  opacity: 1; }
 
 .choose {
   height: 15%;
   width: 100%;
-  display:flex;
+  display: flex;
   justify-content: center;
-  align-items: center;
-}
-  .choose h1 {
-    font-size: 2.5em;
-    font-weight: 900;
-    color: #FFFF00;
-    -webkit-text-stroke: 3.1px #110A78;
-    text-align: center;
-    padding-top: 20%;
-  }
+  align-items: center; }
 
+.choose h1 {
+  font-size: 2.5em;
+  font-weight: 900;
+  color: #FFFF00;
+  -webkit-text-stroke: 3.1px #110A78;
+  text-align: center;
+  padding-top: 20%; }
 
 .navbar {
   z-index: 2;
@@ -152,8 +138,7 @@ main.content {
   padding: 15px 0px;
   font-size: 18px;
   width: 100%;
-  height: 60px;
-}
+  height: 60px; }
 
 .règles {
   background: inherit;
@@ -161,30 +146,29 @@ main.content {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
-}
+  cursor: pointer; }
 
 #règles {
+  z-index: 8;
   position: fixed;
-  display: none;
   bottom: 70px;
   left: 30px;
   padding: 50px;
   background-color: #EEEEEE;
   text-align: justify;
   border: 5px ridge grey;
-}
+  cursor: default; }
 
 #propos {
-  z-index: 2;
+  z-index: 8;
   position: fixed;
-  display: none;
   bottom: 70px;
   right: 30px;
   padding: 50px;
   background-color: #EEEEEE;
   text-align: justify;
   border: 5px ridge grey;
-}
+  cursor: default; }
 
 #resultbox {
   position: absolute;
@@ -197,8 +181,7 @@ main.content {
   align-items: center;
   background: linear-gradient(130deg, #88CFCA, #C4DDD2);
   z-index: -5;
-  opacity: 0;
-}
+  opacity: 0; }
 
 #resultimg {
   max-width: 100%;
@@ -206,38 +189,29 @@ main.content {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 10%;
-}
+  margin-top: 10%; }
 
 .chen {
-  height: 125%;
-}
-
-#resultimg .char {
-
-}
+  height: 125%; }
 
 #resulttxt {
   padding: 10px;
   margin-top: 5%;
   background-color: #EEEEEE;
   text-align: center;
-  border: 5px ridge grey;
-}
+  border: 5px ridge grey; }
 
 #resultbox:target {
-  z-index: 5;
+  z-index: 1;
   opacity: 1;
-  transition-duration: 0.2s;
-}
+  transition-duration: 0.1s; }
 
 @media only screen and (max-width: 450px) {
   .frame {
     height: 100%;
     width: 100%;
     border: solid #2854BD;
-    border-width: 30px 20px 25px 20px;
-  }
+    border-width: 30px 20px 25px 20px; }
 
   .corner {
     left: 0;
@@ -245,156 +219,126 @@ main.content {
     height: 99%;
     width: 100%;
     border-image-source: url("gallery/pokeball.png");
-    border-image-width: 50px;
-  }
+    border-image-width: 50px; }
 
   body {
     max-height: 100%;
-    max-width: 100%;
-  }
+    max-width: 100%; }
 
   main.content {
     width: 90%;
     height: 95%;
     top: 12px;
-    padding: 0.5%;
-  }
+    padding: 0.5%; }
 
   .logo {
     height: 25%;
-    width: 90%;
-  }
+    width: 90%; }
 
   .logo img {
     max-height: 100%;
-    max-width: 100%;
-  }
+    max-width: 100%; }
 
   .charpannel {
     width: 90%;
     height: 55%;
-    flex-wrap: wrap;
-  }
+    flex-wrap: wrap; }
 
-    .charbox {
-      height: 45%;
-      width: 33%;
-      padding: 2%;
-    }
+  .charbox {
+    height: 45%;
+    width: 33%;
+    padding: 2%; }
 
-    .char {
-      height: 75%;
-    }
+  .char {
+    height: 75%; }
 
-    figure {
-      height: 25%;
-      width: 100%;
-    }
+  figure {
+    height: 25%;
+    width: 100%; }
 
-    .type {
-      height: 100%;
-      padding: 10%;
-    }
+  .type {
+    height: 100%;
+    padding: 10%; }
 
-    figcaption {
-      height: 230%;
-      width: 125%;
-      padding: 5px;
-      border: 5px ridge grey;
-      font-size: 10px;
-    }
-
+  figcaption {
+    height: 230%;
+    width: 125%;
+    padding: 5px;
+    border: 5px ridge grey;
+    font-size: 10px; }
 
   .choose {
     height: 15%;
-    width: 100%;
-  }
-    .choose h1 {
-      font-size: 1.1em;
-      -webkit-text-stroke: 2.1px #110A78;
-      padding-top: 20%;
-    }
+    width: 100%; }
 
+  .choose h1 {
+    font-size: 1.1em;
+    -webkit-text-stroke: 2.1px #110A78;
+    padding-top: 20%; }
 
   .navbar {
     padding: 0px 0px;
     font-size: 11px;
     width: 100%;
     height: 25px;
-    justify-content: center;
-  }
+    justify-content: center; }
 
   button {
-    padding: 0px 5px;
-  }
+    padding: 0px 5px; }
 
   #score {
     position: fixed;
     top: 5px;
     text-align: center;
-    width: 90%;
-  }
-
+    width: 90%; }
 
   #règles {
     bottom: 20px;
     left: 20px;
     padding: 15px;
     border: 5px ridge grey;
-    font-size: 12px;
-  }
+    font-size: 12px; }
 
   #règles h1 {
-    font-size: 14px;
-  }
+    font-size: 14px; }
 
   #propos {
     bottom: 20px;
     right: 20px;
     padding: 15px;
     border: 5px ridge grey;
-    font-size: 12px;
-  }
+    font-size: 12px; }
 
   #propos h1 {
-    font-size: 14px;
-  }
+    font-size: 14px; }
 
   #resultbox {
     top: 30px;
     width: 87%;
     height: 88%;
-    border-radius: 60px;
-  }
+    border-radius: 60px; }
 
   #resultimg {
     max-width: 100%;
     height: 30%;
-    margin-top: 10%;
-  }
+    margin-top: 10%; }
 
   #resultimg .char {
-    height: 65%;
-  }
+    height: 65%; }
 
   .chen {
-    height: 150%;
-  }
+    height: 150%; }
 
   #resulttxt {
     padding: 10px;
     margin-top: 5%;
     border: 5px ridge grey;
-    font-size: 12px;
-  }
-}
-
+    font-size: 12px; } }
 @media only screen and (min-width: 450px) and (max-width: 950px) {
   .frame {
     height: 100%;
     width: 100%;
-    border: 20px solid #2854BD;
-  }
+    border: 20px solid #2854BD; }
 
   .corner {
     left: 0;
@@ -402,146 +346,117 @@ main.content {
     height: 100%;
     width: 100%;
     border-image-source: url("gallery/pokeball.png");
-    border-image-width: 50px;
-  }
+    border-image-width: 50px; }
 
   body {
     max-height: 100%;
-    max-width: 100%;
-  }
+    max-width: 100%; }
 
   main.content {
     width: 90%;
     height: 90%;
     top: 20px;
-    padding: 0.5%;
-  }
+    padding: 0.5%; }
 
   .logo {
     height: 35%;
-    width: 100%;
-  }
+    width: 100%; }
 
   .logo img {
     max-height: 100%;
-    max-width: 100%;
-  }
+    max-width: 100%; }
 
   .charpannel {
     width: 98%;
-    height: 50%;
-  }
+    height: 50%; }
 
-    .charbox {
-      height: 100%;
-      width: 20%;
-      padding: 2%;
-    }
+  .charbox {
+    height: 100%;
+    width: 20%;
+    padding: 2%; }
 
-    .char {
-      height: 75%;
-    }
+  .char {
+    height: 75%; }
 
-    figure {
-      height: 25%;
-      width: 100%;
-    }
+  figure {
+    height: 25%;
+    width: 100%; }
 
-    .type {
-      height: 100%;
-      padding: 10%;
-    }
+  .type {
+    height: 100%;
+    padding: 10%; }
 
-    figcaption {
-      height: 200%;
-      width: 125%;
-      padding: 5px;
-      border: 5px ridge grey;
-      font-size: 10px;
-    }
-
+  figcaption {
+    height: 200%;
+    width: 125%;
+    padding: 5px;
+    border: 5px ridge grey;
+    font-size: 10px; }
 
   .choose {
     height: 15%;
-    width: 100%;
-  }
-    .choose h1 {
-      font-size: 1em;
-      -webkit-text-stroke: 2.1px #110A78;
-      padding-top: 20%;
-    }
+    width: 100%; }
 
+  .choose h1 {
+    font-size: 1em;
+    -webkit-text-stroke: 2.1px #110A78;
+    padding-top: 20%; }
 
   .navbar {
     padding: 0px 0px;
     font-size: 12px;
     width: 100%;
-    height: 20px;
-  }
+    height: 20px; }
 
   #score {
     position: fixed;
-    top: 5px;
-  }
-
+    top: 5px; }
 
   #règles {
     bottom: 20px;
     left: 20px;
     padding: 15px;
     border: 5px ridge grey;
-    font-size: 12px;
-  }
+    font-size: 12px; }
 
   #règles h1 {
-    font-size: 14px;
-  }
+    font-size: 14px; }
 
   #propos {
     bottom: 20px;
     right: 20px;
     padding: 15px;
     border: 5px ridge grey;
-    font-size: 12px;
-  }
+    font-size: 12px; }
 
   #propos h1 {
-    font-size: 14px;
-  }
+    font-size: 14px; }
 
   #resultbox {
     top: 20px;
     width: 87%;
     height: 87%;
-    border-radius: 50px;
-  }
+    border-radius: 50px; }
 
   #resultimg {
     max-width: 100%;
     height: 40%;
-    margin-top: 10%;
-  }
+    margin-top: 10%; }
 
   .chen {
-    height: 130%;
-  }
+    height: 130%; }
 
   #resulttxt {
     padding: 10px;
     margin-top: 5%;
     border: 5px ridge grey;
-    font-size: 14px;
-  }
-}
-
-
+    font-size: 14px; } }
 @media only screen and (min-width: 950px) {
   .frame {
     height: 100%;
     width: 100%;
     border: 20px solid #2854BD;
-    border-bottom-width: 60px;
-  }
+    border-bottom-width: 60px; }
 
   .corner {
     left: 0;
@@ -549,116 +464,96 @@ main.content {
     height: 94%;
     width: 100%;
     border-image-source: url("gallery/pokeball.png");
-    border-image-width: 80px;
-  }
+    border-image-width: 80px; }
 
   body {
     max-height: 100%;
     max-width: 100%;
-    margin-bottom: 60px;
-  }
+    margin-bottom: 60px; }
 
   main.content {
     width: 90%;
     height: 88%;
     top: 20px;
-    padding: 0.5%;
-  }
+    padding: 0.5%; }
 
   .logo {
     height: 35%;
-    width: 100%;
-  }
+    width: 100%; }
 
   .logo img {
     max-height: 100%;
-    max-width: 100%;
-  }
+    max-width: 100%; }
 
   .charpannel {
     width: 100%;
-    height: 50%;
-  }
+    height: 50%; }
 
-    .charbox {
-      height: 100%;
-      width: 20%;
-      padding: 2%;
-    }
+  .charbox {
+    height: 100%;
+    width: 20%;
+    padding: 2%; }
 
-    .char {
-      height: 75%;
-    }
+  .char {
+    height: 75%; }
 
-    figure {
-      height: 25%;
-      width: 100%;
-    }
+  figure {
+    height: 25%;
+    width: 100%; }
 
-    .type {
-      height: 100%;
-      padding: 10%;
-    }
+  .type {
+    height: 100%;
+    padding: 10%; }
 
-    figcaption {
-      height: 100%;
-      width: 100%;
-      padding: 5px;
-      border: 5px ridge grey;
-    }
-
+  figcaption {
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    border: 5px ridge grey; }
 
   .choose {
     height: 15%;
-    width: 100%;
-  }
-    .choose h1 {
-      font-size: 2.5em;
-      -webkit-text-stroke: 3.1px #110A78;
-      padding-top: 20%;
-    }
+    width: 100%; }
 
+  .choose h1 {
+    font-size: 2.5em;
+    -webkit-text-stroke: 3.1px #110A78;
+    padding-top: 20%; }
 
   .navbar {
     padding: 15px 0px;
     font-size: 18px;
     width: 100%;
-    height: 60px;
-  }
+    height: 60px; }
 
   #règles {
     bottom: 70px;
     left: 30px;
     padding: 50px;
-    border: 5px ridge grey;
-  }
+    border: 5px ridge grey; }
 
   #propos {
     bottom: 70px;
     right: 30px;
     padding: 50px;
-    border: 5px ridge grey;
-  }
+    border: 5px ridge grey; }
 
   #resultbox {
     top: 20px;
     width: 88%;
-    height: 88%;
-  }
+    height: 88%; }
 
   #resultimg {
     max-width: 100%;
     height: 50%;
-    margin-top: 10%;
-  }
+    margin-top: 10%; }
 
   .chen {
-    height: 125%;
-  }
+    height: 125%; }
 
   #resulttxt {
     padding: 10px;
     margin-top: 5%;
-    border: 5px ridge grey;
-  }
-}
+    border: 5px ridge grey; } }
+
+/*# sourceMappingURL=pokemain.css.map */

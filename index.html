@@ -1,11 +1,12 @@
 <!doctype html>
-<html>
+<html ng-app="">
 <head>
 
   <meta charset="utf-8" lang="fr">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> POKÉMAIN </title>
   <link rel="stylesheet" type="text/css" href="pokemain.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
   <script src="pokemain.js"></script>
 
 </head>
@@ -63,8 +64,8 @@
   </main>
 
   <footer class="navbar">
-    <button onclick="show()" class="règles">RÈGLES !</button>
-    <div id="règles">
+    <button ng-click="rules=!rules" class="règles">RÈGLES !</button>
+    <div id="règles" ng-show="rules" ng-click="rules=false">
       <h1>En 5 parties !</h1>
       <h1>Plante</h1><p>Bat Eau & Psy</p>
       <h1>Feu</h1><p>Bat Électrik & Plante</p>
@@ -73,9 +74,10 @@
       <h1>Psy</h1><p>Bat Électrik & Feu</p>
     </div>
     <div id="score">
-      <script>document.getElementById('score').innerHTML = 'SCORE: '+localStorage.getItem('score')+' MEILLEUR: '+localStorage.getItem('best')+' PARTIE: '+localStorage.getItem('partie')+'/5';</script></div>
-    <button onclick="apropos()" class="règles">À PROPOS !</button>
-    <div id="propos">
+      <script>document.getElementById('score').innerHTML = 'SCORE: '+localStorage.getItem('score')+' MEILLEUR: '+localStorage.getItem('best')+' PARTIE: '+localStorage.getItem('partie')+'/5';</script>
+    </div>
+    <button ng-click="apropos=!apropos" class="règles">À PROPOS !</button>
+    <div id="propos" ng-show="apropos" ng-click="apropos=false">
       <h1>Crédits :</h1>
       <p>
         Images : © <a href="http://www.pokepedia.fr/Portail:Accueil">Poképédia</a><br>
