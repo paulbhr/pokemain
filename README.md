@@ -1,4 +1,4 @@
-<img src="gallery/pokemain_logo.png" alt="preview">
+<img src="gallery/logo.png" alt="preview">
 <h2>Pokémain</h2>
 <h4>Pierre/Papier/Ciseaux : attrapez-les tous!</h4>
 <p>
