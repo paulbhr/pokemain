@@ -16,31 +16,31 @@ export const POKEMONS: Pokemon[] = [
   {
     name: 'Bulbizarre',
     type: 'plante',
-    avatar: '',
+    avatar: require('../assets/pokemon/bulbizarre.png'),
     weakness: ['feu', 'electrik'],
   },
   {
     name: 'Salamèche',
     type: 'feu',
-    avatar: '',
+    avatar: require('../assets/pokemon/salameche.png'),
     weakness: ['eau', 'psy'],
   },
   {
     name: 'Carapuce',
     type: 'eau',
-    avatar: '',
+    avatar: require('../assets/pokemon/carapuce.png'),
     weakness: ['plante', 'electrik'],
   },
   {
     name: 'Pikachu',
     type: 'electrik',
-    avatar: '',
+    avatar: require('../assets/pokemon/pikachu.png'),
     weakness: ['feu', 'psy'],
   },
   {
     name: 'Ramoloss',
     type: 'psy',
-    avatar: '',
+    avatar: require('../assets/pokemon/ramoloss.png'),
     weakness: ['plante', 'eau'],
   }
 ]
