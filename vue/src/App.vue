@@ -1,10 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
+    <footer>
+      <button>Règles !</button>
+      <div class="score-board">
+        <div class="score">
+          Score: <span></span>
+        </div>
+        <div class="game">
+          Partie: <span></span>/5
+        </div>
+        <div class="high">
+          Meilleur: <span></span>
+        </div>
+      </div>
+      <button>À Propos !</button>
+    </footer>
   </div>
 </template>
 
